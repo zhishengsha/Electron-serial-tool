@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serial Port Helper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #serial-logs {
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        input[type="number"] {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>串口助手</h1>
+    <div>
+        <label for="serial-baud">波特率:</label>
+        <input type="number" id="serial-baud" placeholder="选择波特率" value="115200">
+        <button onclick="connectSerial()">连接</button>
+    </div>
+    <div>
+        <textarea id="input-message" placeholder="输入消息"></textarea>
+        <button onclick="sendMessage()">发送</button>
+    </div>
+    <div id="serial-logs" class="flex-grow-1 border border-2 rounded mb-2">
+        <!-- 日志将在这里显示 -->
+    </div>
+    <script>
+        function connectSerial() {
+            // 连接逻辑
+            alert('连接成功！');
+        }
+
+        function sendMessage() {
+            var message = document.getElementById('input-message').value;
+            if (message) {
+                // 发送消息逻辑
+                addLog(`发送: ${message}`);
+                document.getElementById('input-message').value = ''; // 清空输入框
+            }
+        }
+
+        function addLog(message) {
+            var logs = document.getElementById('serial-logs');
+            logs.innerHTML += `${message}<br>`;
+        }
+    </script>
+</body>
+</html>

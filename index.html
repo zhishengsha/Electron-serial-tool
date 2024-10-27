@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+    <link href="./styles.css" rel="stylesheet">
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+
+    <div id="serial" class="">
+        <div id="serial-option">
+            <!-- 串口设置 -->
+            <span class="serial-input">波特率</span>
+            <input name="波特率" type="number" id="serial-baud" placeholder="选择波特率" value="115200" list="serial-baud-list">
+            <datalist id="serial-baud-list">
+                <option>110</option>
+                <option>300</option>
+                <option>600</option>
+                <option>1200</option>
+                <option>2400</option>
+                <option>4800</option>
+                <option>7200</option>
+                <option>9600</option>
+                <option>14400</option>
+                <option>19200</option>
+                <option>28800</option>
+                <option>38400</option>
+                <option>56000</option>
+                <option>57600</option>
+                <option>76800</option>
+                <option>100000</option>
+                <option>115200</option>
+                <option>150000</option>
+                <option>230400</option>
+                <option>460800</option>
+            </datalist>
+
+
+            <span class="serial-input" >数据位</span>
+            <select name="数据位" id="serial-data-bit">
+                <option>8</option>
+                <option>7</option>
+            </select>
+
+
+            <span class="serial-input" >停止位</span>
+            <select name="停止位" id="serial-stop-bit">
+                <option>1</option>
+                <option>2</option>
+            </select>
+
+
+            <span class="serial-input" >校验位</span>
+            <select name="校验位" id="serial-parity-bit">
+                <Option value="none">None</Option>
+                <Option value="even">Even</Option>
+                <Option value="odd">Odd</Option>
+            </select>
+
+
+            <span class="serial-input"> 流量控制</span>
+            <select class="流量控制" id="serial-flow-control">
+                <Option value="none">None</Option>
+                <Option value="hardware">HardWare</Option>
+            </select>
+            <!-- <span class="serial-input">缓冲区</span>
+            <input type="text"> -->
+
+            <button type="button" id="refreshPortsButton">刷新</button>
+
+            <select id="serial-port-select">
+                <option value="">请选择串口</option>
+            </select>
+
+            <button type="Button" id="openPortButton">打开串口</button>
+            <button type="Button" id="closePortButton">关闭串口</button>
+        </div>
+            <!-- 串口接收 -->
+        <div id="serial-recv">
+            <h2>接收数据</h2>
+            <div id="receivedData" class="logs-container" style="border: 1px solid #ccc; height: 200px; overflow-y: auto; padding: 10px;"></div>
+        </div>
+            <!-- 串口发送 -->
+        <div id="serial-send">
+            <textarea id="dataInput" placeholder="输入要发送的数据..."></textarea>
+            <button type="button" id="send-button">发送</button>
+        </div>
+
+    </div>
+
+
+
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+  </body>
+</html>

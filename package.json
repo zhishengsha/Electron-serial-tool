@@ -1,0 +1,21 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "electron-packager ./ demoapp --win --arch=x64 --out ../outputs --electron-zip-dir=../electron-zip --icon=logo.ico --overwrite --extra-resource=./resources/bin/"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "electron": "^33.0.1",
+    "electron-packager": "^17.1.2"
+  },
+  "dependencies": {
+    "iconv-lite": "^0.6.3",
+    "serialport": "^12.0.0"
+  }
+}

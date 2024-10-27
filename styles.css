@@ -1,0 +1,10 @@
+/* styles.css */
+
+/* Add styles here to customize the appearance of your app */
+#serial-logs {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
